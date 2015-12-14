@@ -1,0 +1,68 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[twocolumn]{revtex4}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Note that comments begin with a "%" and are not turned into text in the .pdf
+% document.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Include some extra packages.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[]{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{
+Final Project
+}
+
+\author{Shannon Jasiel}
+\affiliation{Siena College, Loudonville, NY}
+
+\date{\today}
+
+\begin{abstract}
+   The goal of this final project was to figure out whether or not a velociraptor will catch you or if you can outrun it, using our knowledge of physics, Python and LaTex. The person was given a 30 meter head start, while running at 3 m/s and the velociraptor would run at 18 m/s. For problem 1, I graphed the predicted position and time for the people vs. the velociraptor. For problem 2, I was able to figure out that the person has 2 seconds until the velociraptor is able to catch up to you and the person would have traveled about 6 meters in this time. For problem 3, I was told that the raptor is trying to attack from 1 meter away, so I made the plot and was able to conclude that the velociraptor bites at 1.888889 seconds when the person has only ran 5 meters. For problem 4, I had to calculate the probability that the person would get away and my final results predicted that there is about a $65\%$ chance that the person would get away.
+\end{abstract}
+
+
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Problem 1}
+\begin{figure}[b]
+    \includegraphics[width = 0.5\textwidth]{Problem 1.png}
+    \centering
+    \caption{This is my position vs. time graph for comparing the peoples position versus the velociraptors position from 0 to 3 seconds. In the graph, you can tell that they meet at about 2 seconds after the person has ran a total of about 6 meters.\label{fig:Plot 1}}
+\end{figure}
+The first problem was making a position vs time graph. We had to assume that a velociraptor could run 18 m/s and we had to assume that we could run 3 m/s, but we would have a 30 meter head start. Myself and the raptor would be accelerating so quickly that we were able to ignore acceleration. Since we were ignoring acceleration, the new equation would be $x = xi + vi t$. I had to import the matplotlib plotting tools and had to make sure the plots appeared in the notebook and not as a separate window. I then had to import numpy(numerical python). I made labels for the x and y axis, naming them 'Time(seconds)' and 'Position(meters)'. I then made a title for the graph  and named it "The Time and Position of People vs. Velociraptors". I made the x and y limits, which consisted of 0 to 3 for the x axis and 0 to 60 for the y axis. I then started with the persons time and position and used linspace to take numbers from 0 to 3 and plot it 1,000 times, then I used the equation and plugged in the correct numbers. Next was the velociraptors time and position, so I used linspace again to take numbers 0 to 3 and plot it 1,000 times and then plugged the correct numbers into the equation. Then had to make the plot, picking each of the people and velociraptors time and position and assigning them a color, along with the line width and correct label. I then made a legend and placed it in the upper right hand corner and then was able to successfully create my plot, which you can see in FIG. 1.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Problem 2}
+The second problem figuring out when the raptor catches up to the person. I had to figure out how much time has passed and how far the person has ran. First, I did it algebraically. I had the persons equation and the velociraptors equation and then I set them equal to one another, in order to get 2 for the time. I made two separate variables and had them start out equaling to the first data point of both datasets, the persons position and the velociraptors position. I then made a conditional and stated if the first data points equaled each other, then to print the time (in seconds) that has gone by and how far the person has traveled (in meters). If they are not equal, then it will keep on doing a loop until it has found 2 of the same. I figured out that 2 seconds was the amount of time the person has until the velociraptor catches up to them and in this 2 seconds, the person has traveled 6 meters.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Problem 3}
+\begin{figure}[b]
+    \includegraphics[width = 0.5\textwidth]{Probem 3.png}
+    \centering
+    \caption{This is also a position vs. time graph showing what would happen if the velociraptor was only 1 meter behind the person. The arrow points to the point of which the person and the velociraptor would meet, and that would be where the velociraptor tries to bite the person. The exact point is 1.888889 seconds and 5 meters. \label{fig:Plot 1}}
+\end{figure}
+The third problem was figuring out how much time has passed and how far I have ran when the velociraptor is 1 meter behind me. I had to make a new copy of the first graph and add a line or arrow pointing to where the velociraptor is 1 meter behind me. For the first part, I used the previous code that I had used in problem 2, but changed my if statement to subtract 1 from the person and make it print at what time the velociraptor bites the person and how many meters that person has ran at that time, minus 30 meters since it starts out with a 30 meter head start. I then copied and pasted my first graph code  into this code, but I changed to legend to the upper left hand corner. I also found a website online (shown in my notebook) which I used to show me how to create the arrow that points at the specific point in which the velociraptor tries to bite the person at a specific time and distance. I was able to conclude that at 1.888889 seconds, while the person has ran only 5 meters, the velociraptor would be trying to bite the person. Checkout the graph in FIG. 2 that shows the point at which the velociraptor tries to attack the person.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Problem 4}
+The fourth and final problem was to figure out if the velociraptor would actually bite you and to figure out the probability that you would get away. The first time the raptor tries, there is a $20\%$  chance that it will bite me, if it misses, it will try again and then there would be a $15\%$ chance it bites you. If it misses again, it will try one more time and then there would only be a $7\%$ chance that it would bite you. I first assigned first, second and third to np.random.random(), so it would pick a random number from 0 to 1. I started with my first if statement and said that if it was less than .2, to print that the person would have died on the first try, then to make another if statement saying if it was less than .15, to print that the person would have died on the second try and then for the final if statement, if it was less than .07, then to print that the person would have died on the third try. If the person survives all three attacks, it prints that the person has made it. I also ran about 4 rounds of 10 trials each, to get the probability of $65\%$ that the person would make it out alive and successfully get away.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
